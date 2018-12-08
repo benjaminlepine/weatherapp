@@ -77,3 +77,98 @@
   line-height: 60px;
 }
 
+
+.card{
+  width: 350px;
+  height: 500px;
+  border-radius: 12px;
+  margin-left: 12px;
+  margin-top: 25px;
+  background-image: linear-gradient(#03057A, #701B86);
+}
+
+.block{
+  display: block;
+}
+
+.city{
+  height: 50px;
+  line-height: 300%;
+  color: white;
+  font-family: Quicksand Tahoma, Geneva, sans-serif;
+  font-weight: lighter;
+
+}
+
+.mainimage{
+  margin-left: 75px;
+  height: 200px;
+  width: 200px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("./assets/cloud.svg");
+}
+
+.weather{
+  margin-top: 10px;
+  font-size: 20px;
+  color: white;
+  font-family: Quicksand Tahoma, Geneva, sans-serif;
+  font-weight: lighter;
+}
+
+.degree{
+  height: 80px;
+  font-size: 50px;
+  line-height: 200%;
+  color: white;
+  font-family: Quicksand Tahoma, Geneva, sans-serif;
+  font-weight: lighter;
+
+}
+
+.hottext{
+  color: #FF0000;
+}
+
+.coldtext{
+  color: #00FF9B;
+}
+
+.hot{
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("./assets/hot.svg");
+}
+
+.cold{
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("./assets/cold.svg");
+}
+
+.inlineblockleft{
+  display: inline-block;
+}
+
+.inlineblockright{
+  margin-left: 160px;
+  display: inline-block;
+}
+
+.temperature{
+  color: white;
+  font-family: Quicksand Tahoma, Geneva, sans-serif;
+  font-weight: lighter;
+  font-size: 32px;
+}
+
+.temperaturemain{
+  margin-top: 20px;
+}
