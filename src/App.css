@@ -77,11 +77,15 @@
   line-height: 60px;
 }
 
+.Weatherapp{
+  background-image: linear-gradient(#2f1e66, #ae91f1);
+  height: 100vh;
+}
 
 .card{
   width: 350px;
   height: 500px;
-  border-radius: 12px;
+  border-radius: 30px;
   margin-left: 12px;
   margin-top: 25px;
   background-image: linear-gradient(#03057A, #701B86);
@@ -153,7 +157,7 @@
   background-image: url("./assets/cold.svg");
 }
 
-.inlineblockleft{
+.inlineblock{
   display: inline-block;
 }
 
@@ -171,4 +175,133 @@
 
 .temperaturemain{
   margin-top: 20px;
+}
+
+.headermenu{
+  width: 100%;
+  height: 60px;
+  background-color: #2b244d;
+}
+
+.headertitle{
+  color: #e0dee8;
+  font-size: 17px;
+  font-weight: bold;
+  padding-top: 22px;
+  padding-left: 30px;
+  position: absolute;
+}
+
+.sliderlight{
+  color: #e0dee8;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+  padding-right: 15px;
+  vertical-align : bottom;
+  padding-bottom: 10px;
+}
+
+.sliderdark{
+  color: #e0dee8;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+  padding-right: 20px;
+  vertical-align : bottom;
+  padding-bottom: 10px;
+}
+
+.todaytitle{
+  color: #e0dee8;
+  font-size: 17px;
+  font-weight: bold;
+  padding-top: 22px;
+  position: absolute;
+}
+
+.headerleft{
+  position: absolute;
+  left:0;
+  width: auto;
+  display: inline-block;
+}
+
+
+.slidercontainer{
+  position: absolute;
+  right:0;
+  width: auto;
+  display: inline-block;
+}
+
+.mainslider{
+  margin-top: 13px;
+  margin-right: 10px;
+  position: absolute;
+}
+
+/* Rounded sliders */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #ed2d7a;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #ed2d7a;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+.sliderposition{
+  width: 80px;
+}
+
+.iconmenu{
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("./assets/iconmenu.png");
 }

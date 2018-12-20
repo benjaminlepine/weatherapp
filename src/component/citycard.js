@@ -10,7 +10,7 @@ import '../App.css';
 
     render(){
         return (
-            <div className="card inlineblockleft">
+            <div className="card inlineblock">
                 <div className="block">
                     <div className="city"><span>{this.props.city}</span></div>
                     <div className="mainimage"></div>
@@ -18,7 +18,7 @@ import '../App.css';
                     <div className="weather"><span>CLOUDY</span></div>
                 </div>
                 <div className="temperaturemain">
-                    <div className="inlineblockleft">
+                    <div className="inlineblock">
                         <div className="cold"></div>
                         <div className="temperature"><span>18</span></div>
                         <div className="coldtext"><span>Min</span></div>

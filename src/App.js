@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Weatherapp from './component/Hello'
+import Weatherapp from './component/Weatherapp'
 
 class App extends Component {
     render() {
