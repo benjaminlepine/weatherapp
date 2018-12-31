@@ -16,7 +16,7 @@ class Menu extends React.Component {
                     <div className="slidercontainer inlineblock">
                         <div className="sliderlight inlineblock">Light</div>
                         <label className="mainslider switch">
-                            <input type="checkbox"></input>
+                            <input type="checkbox" onclick={()=>this.props.onColorMode()></input>
                             <span className="slider round"></span>
                         </label>
                         <div className="sliderdark inlineblock">Dark</div>
