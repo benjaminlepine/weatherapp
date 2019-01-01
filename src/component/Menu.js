@@ -8,7 +8,6 @@ class Menu extends React.Component {
     render(){
         return (
             <header>
-
                 <div className={"inlineblock headermenu "+this.props.changecolor("headermenu")}>
                     <div className="headerleft">
                         <div className="iconmenu inlineblock"></div>

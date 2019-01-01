@@ -16,9 +16,7 @@ class App extends Component {
     changecolor(basicdesign){
         if(this.darkmode){
             console.log(basicdesign+"-white")
-
             return(basicdesign+"-white")
-
         }
     };
 

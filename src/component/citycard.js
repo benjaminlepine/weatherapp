@@ -4,15 +4,17 @@
 import React, { Component } from 'react';
 import '../App.css';
 
- class Citycard extends React.Component {
-
-     tarzan(){
-         console.log("test")
-     }
+class Citycard extends React.Component {
+    tarzan(){
+        console.log("test")
+        return (
+            <h1>hello</h1>
+        )
+    }
 
     render(){
         return (
-            <div className={"card inlineblock "+this.props.changecolor("card")} onClick={()=>this.tarzan()}>
+            <div className={"card inlineblock "+this.props.changecolor("card")} onClick={()=>this.tarzan}>
                 <div className="block">
                     <div className={"city "+this.props.changecolor("city")}><span>{this.props.city}</span></div>
                     <div className="mainimage"></div>
