@@ -6,25 +6,42 @@ import '../App.css';
 class Weatherapp extends React.Component {
 
     state={
-        darkmode:true
+        darkmode:false
     };
 
+
     handleColorMode=()=>{
-        if(this.state.darkmode){
-            this.setState({darkmode:false});
-        }else{
-            this.setState({darkmode:true});
+        const mode = !this.state.darkmode;
+        this.setState({darkmode: mode});
+    };
+
+    changecolor(basicdesign){
+        if(this.darkmode){
+            console.log(basicdesign+"-white")
+
+            return(basicdesign+"-white")
+
         }
-    }
+    };
 
     render() {
         return (
-            <div className="Weatherapp">
-                <Menu   darkmode={this.state.darkmode}
-                        onColorMode={this.handleColorMode()}/>
-                <Citycard city={'PARIS'}/>
-                <Citycard city={'PARIS'}/>
-                <Citycard city={'PARIS'}/>
+            <div className={"weatherapp "+this.props.changecolor("weatherapp")}>
+                <Menu   darkmode={this.props.darkmode}
+                        handleColorMode={this.props.handleColorMode}
+                        changecolor={this.props.changecolor}/>
+                <Citycard city={'PARIS'}
+                          darkmode={this.props.darkmode}
+                          handleColorMode={this.props.handleColorMode}
+                          changecolor={this.props.changecolor}/>
+                <Citycard city={'PARIS'}
+                          darkmode={this.props.darkmode}
+                          handleColorMode={this.props.handleColorMode}
+                          changecolor={this.props.changecolor}/>
+                <Citycard city={'PARIS'}
+                          darkmode={this.props.darkmode}
+                          handleColorMode={this.props.handleColorMode}
+                          changecolor={this.props.changecolor}/>
             </div>
         );
     }
