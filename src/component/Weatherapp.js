@@ -18,9 +18,8 @@ class Weatherapp extends React.Component {
 
     responsive = {
         0: { items: 1 },
-        500: { items: 2 },
-        800: { items: 3 },
-        1024: { items: 4 },
+        1100: { items: 2 },
+        1500: { items: 3 },
     };
 
     state={
@@ -114,9 +113,13 @@ class Weatherapp extends React.Component {
                         duration={400}
                         responsive={this.responsive}
                         startIndex = {1}
+                        dotsDisabled = {true}
+                        // buttonsDisabled={true}
                     />
                 </div>
 
+                <button onClick={() => this.Carousel._slidePrev()}>PREV</button>
+                <button onClick={() => this.Carousel._slideNext()}>NEXT</button>
             </div>
         );
     }

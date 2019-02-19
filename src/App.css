@@ -393,3 +393,18 @@ input:checked + .slider:before {
 .margin-left50{
   margin-left: 330px;
 }
+
+.alice-carousel__prev-btn{
+}
+
+.alice-carousel__next-btn, .alice-carousel__next-btn-wrapper {
+text-align: left;
+}
+
+.alice-carousel__prev-btn-item > span, .alice-carousel__next-btn-item > span{
+  color: transparent;
+  background-image: url("./assets/iconmenu2.png");
+  /*background-image: url("./assets/prev.png")!important;*/
+}
+
+
