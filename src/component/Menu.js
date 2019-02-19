@@ -1,5 +1,6 @@
 // Created by benjamin on 19/12/2018.
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
 import './Helper';
 

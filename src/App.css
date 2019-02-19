@@ -140,6 +140,27 @@
   background-image: url("./assets/cloud.svg");
 }
 
+.addicon{
+  margin-left: 73px;
+  background-size: 80%;
+  background-image: url("./assets/add.svg");
+}
+
+.cityicon{
+
+  background-image: url("./assets/city.png");
+}
+
+.inputcity{
+  margin-top: 10px;
+  margin-bottom: 35px;
+  border-radius: 18px;
+  width: 70%;
+  height: 30px;
+  border-color: transparent;
+  text-align: center;
+}
+
 .weather{
   margin-top: 10px;
   font-size: 20px;
@@ -192,6 +213,10 @@
 
 .inlineblock{
   display: inline-block;
+}
+
+.inline{
+  display: inline;
 }
 
 .inlineblockright{
@@ -355,4 +380,16 @@ input:checked + .slider:before {
   background-size: 100%;
   background-repeat: no-repeat;
   background-image: url("./assets/iconmenu.png");
+}
+
+
+.top10{
+  position: absolute;
+  top: 65px;
+  left: 0px;
+  z-index: 99;
+}
+
+.margin-left50{
+  margin-left: 330px;
 }

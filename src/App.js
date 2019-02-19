@@ -26,7 +26,7 @@ class App extends Component {
                 <Weatherapp
                     darkmode={this.state.darkmode}
                     handleColorMode={this.handleColorMode}
-                    changecolor={this.changecolor}/>/>
+                    changecolor={this.changecolor}/>
             </div>
         );
     }
