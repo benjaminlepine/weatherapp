@@ -1,24 +1,31 @@
 /**
  * Created by benjamin on 06/11/2018.
  */
-// import React, { Component } from 'react';
+//import React, { Component } from 'react';
 import React from 'react';
 import '../App.css';
 
 class Citycard extends React.Component {
-    // tarzan(){
-    //     console.log("test")
-    //     return (
-    //         <h1>hello</h1>
-    //     )
-    // }
+
+    weatherIcon(){
+        let weather = this.props.city.main.toLowerCase()
+        if(this.props.darkmode === true){
+            return("mainimage "+ weather)
+        }
+        else{
+            weather = weather.concat("-white")
+            return("mainimage "+ weather)
+        }
+
+    }
 
     render(){
         return (
+
             <div className={"card inlineblock "+this.props.changecolor("card")}>
                 <div className="block">
                     <div className={"city "+this.props.changecolor("city")}><span>{this.props.city.name}</span></div>
-                    <div className="mainimage"></div>
+                    <div className={this.weatherIcon()}></div>
                     <div className={"degree "+this.props.changecolor("degree")}><span>{this.props.city.temp}°</span></div>
                     <div className={"weather "+this.props.changecolor("weather")}><span>{this.props.city.main}</span></div>
                 </div>

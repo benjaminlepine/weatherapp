@@ -28,7 +28,8 @@ class Weatherapp extends React.Component {
     };
 
     componentDidMount(){
-        const keyapi = "c456c057da472e4c57fabb1aecbeb70a";
+        // const keyapi = "c456c057da472e4c57fabb1aecbeb70a"; // Clef de Benjamin
+        const keyapi = "ef0eb98d901c7306544b4ebab228204a"; // Clef de Naba
         let cities = [];
         let initialCities = [
             // 9999999, // ADD CITY
@@ -37,7 +38,7 @@ class Weatherapp extends React.Component {
             2172797, // Cairns
             5128581]; // New York
 
-        for(let i = 0;i<4;i++){
+        for(let i = 0;i<initialCities.length;i++){
             // console.log("initialCities = ",initialCities[i])
             let url = "https://api.openweathermap.org/data/2.5/weather?id=" +
                 initialCities[i]
@@ -51,6 +52,7 @@ class Weatherapp extends React.Component {
                         name:result.name,
                         id:result.id,
                         main:result.weather[0].main,
+                        description:result.weather[0].description,
                         temp:result.main.temp,
                         temp_min:result.main.temp_min,
                         temp_max:result.main.temp_max,
@@ -69,7 +71,7 @@ class Weatherapp extends React.Component {
 
     changecolor(basicdesign){
         if(this.darkmode){
-            return(basicdesign+"-white")
+            return(basicdesign+"-white");
 
         }
     };

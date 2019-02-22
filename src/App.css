@@ -137,8 +137,66 @@
   width: 200px;
   background-size: 100%;
   background-repeat: no-repeat;
-  background-image: url("./assets/cloud.svg");
+  /*background-image: url("./assets/weather/violet/clouds.svg");*/
 }
+
+.clear{
+  background-image: url("./assets/weather/violet/clear.svg");
+}
+
+.clouds{
+  background-image: url("./assets/weather/violet/clouds.svg");
+}
+
+.rain{
+  background-image: url("./assets/weather/violet/rain.svg");
+}
+
+.snow{
+  background-image: url("./assets/weather/violet/snow.svg");
+}
+
+.fog{
+  background-image: url("./assets/weather/violet/fog.svg");
+}
+
+.haze{
+  background-image: url("./assets/weather/violet/haze.svg");
+}
+
+.mist{
+  background-image: url("./assets/weather/violet/mist.svg");
+}
+
+.clear-white{
+  background-image: url("./assets/weather/white/clear.svg");
+}
+
+.clouds-white{
+  background-image: url("./assets/weather/white/clouds.svg");
+}
+
+.rain-white{
+  background-image: url("./assets/weather/white/rain.svg");
+}
+
+.snow-white{
+  background-image: url("./assets/weather/white/snow.svg");
+}
+
+.fog-white{
+  background-image: url("./assets/weather/white/fog.svg");
+}
+
+.haze-white{
+  background-image: url("./assets/weather/white/haze.svg");
+}
+
+.mist-white{
+  background-image: url("./assets/weather/white/mist.svg");
+}
+
+
 
 .addicon{
   margin-left: 73px;
@@ -417,7 +475,9 @@ text-align: left;
   font-size: 35px;
 }
 
-
+.whitetext{
+  color: white;
+}
 
 
 
