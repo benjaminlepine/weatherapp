@@ -69,32 +69,24 @@ class Weatherapp extends React.Component {
 
     changecolor(basicdesign){
         if(this.darkmode){
-            //console.log(basicdesign+"-white")
             return(basicdesign+"-white")
 
         }
     };
 
     galleryItems() {
-        if(this.state.cities.length === 0){
-            console.log("this.state.cities = ",this.state.cities);
-            return (
-                this.state.cities.map(city =>(
-                    <Addcity changecolor={this.props.changecolor}/>
-                ))
-            )
-        }
-        else{
-            return (
-                this.state.cities.map(city =>(
+        return (
+            this.state.cities.map(city =>(
+                <div>
                     <Citycard city={city}
                               darkmode={this.props.darkmode}
                               handleColorMode={this.props.handleColorMode}
                               changecolor={this.props.changecolor}
                               key={city.id} />
-                ))
-            )
-        }
+                </div>
+            ))
+        )
+
     };
 
     render() {
@@ -104,9 +96,7 @@ class Weatherapp extends React.Component {
                 <Menu   darkmode={this.props.darkmode}
                         handleColorMode={this.props.handleColorMode}
                         changecolor={this.props.changecolor}/>
-
                 <Addcity changecolor={this.props.changecolor}/>
-
                 <div className="margin-left50">
                     <AliceCarousel
                         items={items}
@@ -114,12 +104,10 @@ class Weatherapp extends React.Component {
                         responsive={this.responsive}
                         startIndex = {1}
                         dotsDisabled = {true}
-                        // buttonsDisabled={true}
+                        mouseDragEnabled={true}
                     />
                 </div>
 
-                <button onClick={() => this.Carousel._slidePrev()}>PREV</button>
-                <button onClick={() => this.Carousel._slideNext()}>NEXT</button>
             </div>
         );
     }
