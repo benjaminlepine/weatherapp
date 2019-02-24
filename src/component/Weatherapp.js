@@ -1,15 +1,8 @@
-// import React, { Component } from 'react';
 import React from 'react';
-import Citycard from './citycard.js';
+import Citycard from './CityCard.js';
 import Addcity from './Addcity.js';
-import Carousseltest from './Carousseltest.js';
 import Menu from './Menu.js';
 import '../App.css';
-// import "react-alice-carousel/lib/alice-carousel.css" from ;
-/**
- * Created by benjamin on 19/02/2019.
- */
-
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 
@@ -28,8 +21,8 @@ class Weatherapp extends React.Component {
     };
 
     componentDidMount(){
-        // const keyapi = "c456c057da472e4c57fabb1aecbeb70a"; // Clef de Benjamin
-        const keyapi = "ef0eb98d901c7306544b4ebab228204a"; // Clef de Naba
+        const keyapi = "c456c057da472e4c57fabb1aecbeb70a"; // Clef de Benjamin
+        // const keyapi = "ef0eb98d901c7306544b4ebab228204a"; // Clef de Naba
         let cities = [];
         let initialCities = [
             // 9999999, // ADD CITY

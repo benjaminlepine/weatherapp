@@ -108,7 +108,14 @@
   border-radius: 30px;
   margin-left: 60px;
   margin-top: 25px;
-  background-image: linear-gradient(#03057A, #701B86);
+  background-color: #701B86;
+  background-image: linear-gradient( #03057A, rgba(255,255,255,0));
+  transition: background-color 0.8s;
+  cursor: pointer;
+}
+
+.card:hover{
+  background-color: #c16b0a;
 }
 
 .card-white{
