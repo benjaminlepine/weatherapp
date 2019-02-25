@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Weatherapp from './component/Weatherapp'
 
+
 class App extends Component {
 
     state={
@@ -15,7 +16,6 @@ class App extends Component {
 
     changecolor(basicdesign){
         if(this.darkmode){
-            // console.log(basicdesign+"-white")
             return(basicdesign+"-white")
         }
     };

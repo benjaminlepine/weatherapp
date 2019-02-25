@@ -5,7 +5,7 @@ import Menu from './Menu.js';
 import '../App.css';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
-
+import BasicExample from './Router.js';
 
 class Weatherapp extends React.Component {
 
@@ -102,7 +102,7 @@ class Weatherapp extends React.Component {
                         mouseDragEnabled={true}
                     />
                 </div>
-
+                {/*<BasicExample></BasicExample>*/}
             </div>
         );
     }
