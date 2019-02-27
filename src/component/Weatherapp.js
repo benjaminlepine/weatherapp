@@ -5,104 +5,46 @@ import Menu from './Menu.js';
 import '../App.css';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
-import BasicExample from './Router.js';
+import WeatherRouter from './Router.js';
+import MainCity from "./MainCity.js";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import DetailCityCard from "./DetailCityCard.js";
+
 
 class Weatherapp extends React.Component {
 
-    responsive = {
-        0: { items: 1 },
-        1100: { items: 2 },
-        1500: { items: 3 },
-    };
-
     state={
         darkmode:false,
-        cities:[]
-    };
-
-    componentDidMount(){
-        const keyapi = "c456c057da472e4c57fabb1aecbeb70a"; // Clef de Benjamin
-        // const keyapi = "ef0eb98d901c7306544b4ebab228204a"; // Clef de Naba
-        let cities = [];
-        let initialCities = [
-            // 9999999, // ADD CITY
-            6455259, // Paris
-            3846616, // Londres
-            2172797, // Cairns
-            5128581]; // New York
-
-        for(let i = 0;i<initialCities.length;i++){
-            // console.log("initialCities = ",initialCities[i])
-            let url = "https://api.openweathermap.org/data/2.5/weather?id=" +
-                initialCities[i]
-                +"&units=metric"
-                +"&appid="+keyapi;
-            fetch(url)
-                .then(res=>res.json())
-                .then(result=>{
-                    // console.log(result);
-                    const city = {
-                        name:result.name,
-                        id:result.id,
-                        main:result.weather[0].main,
-                        description:result.weather[0].description,
-                        temp:result.main.temp,
-                        temp_min:result.main.temp_min,
-                        temp_max:result.main.temp_max,
-                        icon:result.weather[0].icon
-                    };
-                    cities.push(city);
-                    this.setState({cities});
-                })
-        }
-    }
-
-    handleColorMode=()=>{
-        const mode = !this.state.darkmode;
-        this.setState({darkmode: mode});
     };
 
     changecolor(basicdesign){
         if(this.darkmode){
             return(basicdesign+"-white");
-
         }
     };
 
-    galleryItems() {
-        return (
-            this.state.cities.map(city =>(
-                <div>
-                    <Citycard city={city}
-                              darkmode={this.props.darkmode}
-                              handleColorMode={this.props.handleColorMode}
-                              changecolor={this.props.changecolor}
-                              key={city.id} />
-                </div>
-            ))
-        )
-
-    };
-
     render() {
-        let items = this.galleryItems();
         return (
             <div className={"weatherapp "+this.props.changecolor("weatherapp")}>
                 <Menu   darkmode={this.props.darkmode}
                         handleColorMode={this.props.handleColorMode}
                         changecolor={this.props.changecolor}/>
-                <Addcity changecolor={this.props.changecolor}/>
-                <div className="margin-left50">
-                    <AliceCarousel
-                        items={items}
-                        duration={400}
-                        responsive={this.responsive}
-                        startIndex = {1}
-                        dotsDisabled = {true}
-                        mouseDragEnabled={true}
-                    />
-                </div>
-                {/*<BasicExample></BasicExample>*/}
+                <Router>
+                    <div>
+                        <Route
+                            exact path='/'
+                            render={() => <MainCity darkmode={this.props.darkmode}
+                                                    changecolor={this.changecolor}/>}
+                        />
+                        <Route
+                            path='/city-infos'
+                            render={() => <DetailCityCard darkmode={this.props.darkmode}
+                                                          changecolor={this.changecolor}/>}
+                        />
+                    </div>
+                </Router>
+                {/*<MainCity darkmode={this.props.darkmode}/>*/}
+                {/*<WeatherRouter></WeatherRouter>*/}
             </div>
         );
     }

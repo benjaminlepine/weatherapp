@@ -140,6 +140,30 @@
   color:var(--text-grey)
 }
 
+/* Detail City */
+
+.detail-city-card{
+  margin-left: 10%;
+  width: 80%;
+  height: 500px;
+  border-radius: 30px;
+  margin-top: 25px;
+  background-color: #701B86;
+  background-image: linear-gradient( #03057A, rgba(255,255,255,0));
+  transition: background-color 0.8s;
+  cursor: pointer;
+}
+
+.detail-city-card:hover{
+  background-color: #c16b0a;
+}
+
+.detail-city-card-white{
+  background-image: linear-gradient(#FFFFFF, #FFFFFF);
+}
+
+
+/* Weather Icons Class */
 .mainimage{
   margin-left: 50px;
   height: 200px;
@@ -204,8 +228,6 @@
 .mist-white{
   background-image: url("./assets/weather/white/mist.svg");
 }
-
-
 
 .addicon{
   margin-left: 73px;
