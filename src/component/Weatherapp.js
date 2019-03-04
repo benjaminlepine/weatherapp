@@ -1,11 +1,7 @@
 import React from 'react';
-import Citycard from './CityCard.js';
-import Addcity from './Addcity.js';
 import Menu from './Menu.js';
 import '../App.css';
-import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
-import WeatherRouter from './Router.js';
 import MainCity from "./MainCity.js";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import DetailCityCard from "./DetailCityCard.js";

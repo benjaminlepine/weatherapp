@@ -1,13 +1,11 @@
-/**
- * Created by benjamin on 06/11/2018.
- */
-
 import React from 'react';
 import '../App.css';
 import Citycard from './CityCard.js';
 import Addcity from './Addcity.js';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
+import fetchAPI from "../utils/fetchAPI.js";
+
 
 class MainCity extends React.Component {
 
@@ -22,38 +20,19 @@ class MainCity extends React.Component {
     };
 
     componentDidMount(){
-        const keyapi = "c456c057da472e4c57fabb1aecbeb70a"; // Clef de Benjamin
-        // const keyapi = "ef0eb98d901c7306544b4ebab228204a"; // Clef de Naba
         let cities = [];
         let initialCities = [
-            6455259, // Paris
-            3846616, // Londres
-            2172797, // Cairns
-            5128581]; // New York
-
+            "Tunis",
+            "Doha",
+            "Tokyo",
+            "Paris"];
         for(let i = 0;i<initialCities.length;i++){
-            let url = "https://api.openweathermap.org/data/2.5/weather?id=" +
-                initialCities[i]
-                +"&units=metric"
-                +"&appid="+keyapi;
-            fetch(url)
-                .then(res=>res.json())
-                .then(result=>{
-                    const city = {
-                        name:result.name,
-                        id:result.id,
-                        main:result.weather[0].main,
-                        description:result.weather[0].description,
-                        temp:result.main.temp,
-                        temp_min:result.main.temp_min,
-                        temp_max:result.main.temp_max,
-                        icon:result.weather[0].icon
-                    };
-                    cities.push(city);
-                    this.setState({cities});
-                })
+            fetchAPI.FetchCurrentWeatherByCityName(this,initialCities,cities,i)
         }
+        fetchAPI.FetchDetailledWeatherByCityName()
+
     }
+
 
     galleryItems() {
         return (
@@ -79,7 +58,7 @@ class MainCity extends React.Component {
 
     render(){
         let items = this.galleryItems();
-        console.log("MAIN CITY this.props.darkmode = ",this.props.darkmode)
+        // console.log("MAIN CITY this.props.darkmode = ",this.props.darkmode)
         return (
             <div>
                 <Addcity darkmode={this.props.darkmode}

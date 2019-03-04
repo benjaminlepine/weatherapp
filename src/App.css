@@ -173,61 +173,67 @@
   /*background-image: url("./assets/weather/violet/clouds.svg");*/
 }
 
-.clear{
-  background-image: url("./assets/weather/violet/clear.svg");
+.redwtf{
+  height: 200px;
+  width: 200px;
+  background-color: red;
 }
 
-.clouds{
-  background-image: url("./assets/weather/violet/clouds.svg");
-}
+/*.clear{*/
+  /*background-image: url("./assets/weather/violet/clear.svg");*/
+/*}*/
 
-.rain{
-  background-image: url("./assets/weather/violet/rain.svg");
-}
+/*.clouds{*/
+  /*background-image: url("./assets/weather/violet/clouds.svg");*/
+/*}*/
 
-.snow{
-  background-image: url("./assets/weather/violet/snow.svg");
-}
+/*.rain{*/
+  /*background-image: url("./assets/weather/violet/rain.svg");*/
+/*}*/
 
-.fog{
-  background-image: url("./assets/weather/violet/fog.svg");
-}
+/*.snow{*/
+  /*background-image: url("./assets/weather/violet/snow.svg");*/
+/*}*/
 
-.haze{
-  background-image: url("./assets/weather/violet/haze.svg");
-}
+/*.fog{*/
+  /*background-image: url("./assets/weather/violet/fog.svg");*/
+/*}*/
 
-.mist{
-  background-image: url("./assets/weather/violet/mist.svg");
-}
+/*.haze{*/
+  /*background-image: url("./assets/weather/violet/haze.svg");*/
+/*}*/
 
-.clear-white{
-  background-image: url("./assets/weather/white/clear.svg");
-}
+/*.mist{*/
+  /*background-image: url("./assets/weather/violet/mist.svg");*/
+/*}*/
 
-.clouds-white{
-  background-image: url("./assets/weather/white/clouds.svg");
-}
+/*.clear-white{*/
+  /*background-image: url("./assets/weather/white/clear.svg");*/
+/*}*/
 
-.rain-white{
-  background-image: url("./assets/weather/white/rain.svg");
-}
+/*.clouds-white{*/
+  /*background-image: url("./assets/weather/white/clouds.svg");*/
+/*}*/
 
-.snow-white{
-  background-image: url("./assets/weather/white/snow.svg");
-}
+/*.rain-white{*/
+  /*background-image: url("./assets/weather/white/rain.svg");*/
+/*}*/
 
-.fog-white{
-  background-image: url("./assets/weather/white/fog.svg");
-}
+/*.snow-white{*/
+  /*background-image: url("./assets/weather/white/snow.svg");*/
+/*}*/
 
-.haze-white{
-  background-image: url("./assets/weather/white/haze.svg");
-}
+/*.fog-white{*/
+  /*background-image: url("./assets/weather/white/fog.svg");*/
+/*}*/
 
-.mist-white{
-  background-image: url("./assets/weather/white/mist.svg");
-}
+/*.haze-white{*/
+  /*background-image: url("./assets/weather/white/haze.svg");*/
+/*}*/
+
+/*.mist-white{*/
+  /*background-image: url("./assets/weather/white/mist.svg");*/
+/*}*/
 
 .addicon{
   margin-left: 73px;
