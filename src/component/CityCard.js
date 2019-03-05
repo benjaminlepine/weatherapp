@@ -28,35 +28,44 @@ class Citycard extends React.Component {
         weatherIconElem.style.backgroundImage = "url("+weatherIcon.src+")";
     }
 
+    componentDidMount(){
+        this.loadWeatherIcon()
+    }
+
     componentDidUpdate(){
         this.loadWeatherIcon()
     }
 
+    geturl(){
+        // console.log("this.props.city.name = ",this.props.city.name);
+        return("/city-infos/"+this.props.city.name)
+    }
+
     render(){
         return (
-        <Link to="/city-infos">
-            <div className={"card inlineblock "+this.props.changecolor("card")}>
-                <div className="block">
-                    <div className={"city "+this.props.changecolor("city")}><span>{this.props.city.name}</span></div>
-                    {/*<div className={this.weatherIcon()}></div>*/}
-                    <div className="mainimage" ref="weatherIconElem"></div>
-                    <div className={"degree "+this.props.changecolor("degree")}><span>{this.props.city.temp}°</span></div>
-                    <div className={"weather "+this.props.changecolor("weather")}><span>{this.props.city.main}</span></div>
-                </div>
-                <div className="temperaturemain">
-                    <div className="inlineblock">
-                        <div className="temp-icon cold"/>
-                        <div className={"temperature "+this.props.changecolor("temperature")}><span>{Math.round(this.props.city.temp_min)}</span></div>
-                        <div className="coldtext"><span>Min</span></div>
+            <Link to={this.geturl()}>
+                <div className={"card inlineblock "+this.props.changecolor("card")}>
+                    <div className="block">
+                        <div className={"city "+this.props.changecolor("city")}><span>{this.props.city.name}</span></div>
+                        {/*<div className={this.weatherIcon()}></div>*/}
+                        <div className="mainimage" ref="weatherIconElem"></div>
+                        <div className={"degree "+this.props.changecolor("degree")}><span>{this.props.city.temp}°</span></div>
+                        <div className={"weather "+this.props.changecolor("weather")}><span>{this.props.city.main}</span></div>
                     </div>
-                    <div className="inlineblockright">
-                        <div className="temp-icon hot"/>
-                        <div className={"temperature "+this.props.changecolor("temperature")}><span>{Math.round(this.props.city.temp_max)}</span></div>
-                        <div className="hottext"><span>max</span></div>
+                    <div className="temperaturemain">
+                        <div className="inlineblock">
+                            <div className="temp-icon cold"/>
+                            <div className={"temperature "+this.props.changecolor("temperature")}><span>{Math.round(this.props.city.temp_min)}</span></div>
+                            <div className="coldtext"><span>Min</span></div>
+                        </div>
+                        <div className="inlineblockright">
+                            <div className="temp-icon hot"/>
+                            <div className={"temperature "+this.props.changecolor("temperature")}><span>{Math.round(this.props.city.temp_max)}</span></div>
+                            <div className="hottext"><span>max</span></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Link>
+            </Link>
         );
     }
 }

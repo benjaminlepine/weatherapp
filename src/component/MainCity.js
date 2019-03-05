@@ -29,10 +29,8 @@ class MainCity extends React.Component {
         for(let i = 0;i<initialCities.length;i++){
             fetchAPI.FetchCurrentWeatherByCityName(this,initialCities,cities,i)
         }
-        fetchAPI.FetchDetailledWeatherByCityName()
-
+        // fetchAPI.FetchDetailledWeatherByCityName()
     }
-
 
     galleryItems() {
         return (
