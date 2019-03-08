@@ -8,19 +8,8 @@ class DetailCityCard extends React.Component {
         super(props)
         this.state = {
             detailledCityInfos: {}
-            // testalacon:{
-            //     pomme:"bonjour",
-            //     poire:"aurevoir"
-            // }
         };
     }
-
-    componentWillMount(){
-
-        // fetchAPI.FetchDetailledWeatherByCityName(this.state.detailledCityInfos)
-
-    }
-
 
     componentDidMount(){
         const keyapi = "c456c057da472e4c57fabb1aecbeb70a";
@@ -30,8 +19,6 @@ class DetailCityCard extends React.Component {
             + "&units=metric"
             + "&appid=" + keyapi;
 
-
-        // console.log("RESULT detailled city = ",detailledWeather)
         fetch(url)
             .then(res => res.json())
             .then(result => {
@@ -58,47 +45,17 @@ class DetailCityCard extends React.Component {
                     })
                 }
             )
-
-
-
-        // fetchAPI.FetchDetailledWeatherByCityName(this.state.detailledCityInfos)
-
-
-        // let tab_jour = new Array["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
-        // let result = {
-        //     Humidity:"",
-        //     Wind:"",
-        //     Country:"",
-        //     CityName:"",
-        //
-        //     Weather:"",
-        //     Temperature:""};
-
-        // let trueDetailledCityInfos = Object.assign({}, this.state.detailledCityInfos);
-        // console.log("RESULT detailled city 3 = ",result)
-        // console.log("RESULT detailled city = ",detailledCityInfos)
         this.loadBackgroundIcon()
-
-
-        // console.log("this.state = ",this.state.detailledCityInfos)
-        // console.log("trueDetailledCityInfos = ",this.state.detailledCityInfos)
-
-
     }
 
 
     loadBackgroundIcon(){
-        // let weather = this.props.city.main.toLowerCase();
+        let country = this.state.detailledCityInfos.Country;
         let weatherIcon = new Image();
-        let weatherIconElem = this.refs.weatherIconElem;
-        // if(this.props.darkmode === true){
-        //     weatherIcon.src = '../assets/weather/violet/'+weather+'.svg';
-        // }
-        // else{
-        //     weatherIcon.src = '../assets/weather/white/'+weather+'.svg';
-        // }
-        // weatherIconElem.style.backgroundImage = "url("+weatherIcon.src+")";
-
+        let detailCityCard = this.refs.detailCityCard;
+        weatherIcon.src = '../assets/country/'+country+'.png';
+        // console.log("weatherIcon.src = ",weatherIcon.src)
+        detailCityCard.style.backgroundImage = "url("+weatherIcon.src+")";
     }
 
     componentDidUpdate(){
@@ -119,7 +76,7 @@ class DetailCityCard extends React.Component {
                 </Link>
                 <div>
                     <div className={"detail-city-card "+this.props.changecolor("detail-city-card")}>
-                        <div className="background-city">
+                        <div className="background-city" ref="detailCityCard">
                             {console.log("this.state.detailledCityInfos = ",this.state.detailledCityInfos)}
                             <div className="grid-container2">
                                 <div className="item6 no-bottom-margin"><span className="temperature-detail">{Math.round(this.state.detailledCityInfos.Temperature)}°</span></div>
