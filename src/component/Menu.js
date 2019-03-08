@@ -6,6 +6,22 @@ import './Helper';
 
 class Menu extends React.Component {
 
+    newDate(){
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth() + 1; //January is 0!
+        let yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        today = mm + '/' + dd + '/' + yyyy;
+        return(today)
+
+    }
+
     render(){
         return (
             <header>
@@ -14,7 +30,7 @@ class Menu extends React.Component {
                         <div className="iconmenu inlineblock"></div>
                         <span className={"headertitle inlineblock " +this.props.changecolor("headertitle")}>Weather</span>
                     </div>
-                    <span className={"todaytitle inlineblock "+this.props.changecolor("todaytitle")}>TODAY</span>
+                    <span className={"todaytitle inlineblock "+this.props.changecolor("todaytitle")}>{this.newDate()}</span>
                     <div className="slidercontainer inlineblock">
                         <div className={"slider-menu inlineblock "+this.props.changecolor("slider-menu")}>Dark</div>
                         <label className="mainslider switch">

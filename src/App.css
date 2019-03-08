@@ -477,11 +477,14 @@ span{
 }
 
 .todaytitle{
-  color: #e0dee8;
+  color: #A185E2;
   font-size: 17px;
   font-weight: bold;
-  padding-top: 22px;
+  padding-top: 16px;
   position: absolute;
+  font-family: "Lucida Sans Unicode", Times, sans-serif;
+  letter-spacing: 1px;
+
 }
 
 .todaytitle-white {
