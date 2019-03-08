@@ -72,7 +72,10 @@ class DetailCityCard extends React.Component {
         return (
             <div>
                 <Link to="/">
-                    <button>RETOUR</button>
+                    <div>
+                        <div className="backbutton"></div>
+                        <div id="backbutton2" className="backbutton"></div>
+                    </div>
                 </Link>
                 <div>
                     <div className={"detail-city-card "+this.props.changecolor("detail-city-card")}>

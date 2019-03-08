@@ -155,9 +155,31 @@ margin-left: 17%;
   height: 60%;
   background-size: cover;
   background-position: bottom;
-  background-image: url("./assets/country/FR.png");
 }
 
+.backbutton{
+  width: 100px;
+  height: 85px;
+  border:none;
+  background-size: 85%;
+  background-image: url("./assets/back.png");
+  display: inline;
+  position: absolute;
+  left: 5%;
+  background-repeat: no-repeat;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#backbutton2{
+  background-image: url("./assets/backh.png");
+}
+
+#backbutton2:hover{
+  opacity: 0;
+}
 
 .detail-city-card-white{
   background-image: linear-gradient(#FFFFFF, #FFFFFF);
