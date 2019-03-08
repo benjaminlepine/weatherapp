@@ -25,6 +25,7 @@ const fetchAPI =   {
                     icon: result.weather[0].icon
                 };
                 cities.push(city);
+                // console.log("cityyyy = ",city)
                 thisContext.setState({cities});
             })
     },
@@ -62,6 +63,8 @@ const fetchAPI =   {
                     // detailledCityInfos.Days[i].Weather = result.list[0].weather[0].main;
                     // detailledCityInfos.Days[i].Temp = result.list[0].main.temp;
                 }
+
+                return (detailledCityInfos)
                 // }
 
 

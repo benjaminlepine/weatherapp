@@ -37,7 +37,7 @@ class Citycard extends React.Component {
     }
 
     geturl(){
-        // console.log("this.props.city.name = ",this.props.city.name);
+        // console.log("this.props.city.name = ",this.props.city);
         return("/city-infos/"+this.props.city.name)
     }
 

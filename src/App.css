@@ -140,26 +140,79 @@
   color:var(--text-grey)
 }
 
-/* Detail City */
-
+/******************* Detail City Card  ******************/
 .detail-city-card{
-  margin-left: 10%;
-  width: 80%;
-  height: 500px;
+margin-left: 17%;
+  width: 66%;
+  height: 550px;
   border-radius: 30px;
   margin-top: 25px;
-  background-color: #701B86;
-  background-image: linear-gradient( #03057A, rgba(255,255,255,0));
-  transition: background-color 0.8s;
-  cursor: pointer;
+  background-color: white;
 }
 
-.detail-city-card:hover{
-  background-color: #c16b0a;
+.background-city{
+  border-radius: 30px 30px 0px 0px ;
+  height: 60%;
+  background-size: cover;
+  background-position: bottom;
+  background-image: url("./assets/country/FR.png");
 }
+
 
 .detail-city-card-white{
   background-image: linear-gradient(#FFFFFF, #FFFFFF);
+}
+
+.temperature-detail{
+font-size: 120px;
+  padding-left: 30px;
+}
+
+.weather-detail{
+  font-family: "Lucida Sans Unicode", Times, sans-serif;
+  text-transform: uppercase;
+  opacity: 0.7;
+  letter-spacing: 4px;
+  font-size: 16px;
+}
+
+.weather-small-detail{
+  font-family: "Lucida Sans Unicode", Times, sans-serif;
+  text-transform: uppercase;
+  opacity: 0.5;
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+
+.item6 { grid-area: temp;  }
+.item7 { grid-area: weather;  }
+.item8 { grid-area: humidity; }
+.item9 { grid-area: humidity_value; }
+.item10 { grid-area: wind; }
+.item11 { grid-area: wind_value; }
+.item12 { grid-area: blanck_center; }
+.item13 { grid-area: city; }
+.item14 { grid-area: country; }
+.item15 { grid-area: blanck_right; }
+
+.grid-container2 {
+  display: grid;
+  grid-template-areas:
+          'temp temp blanck_center blanck_center city city'
+          'temp temp blanck_center blanck_center city city'
+          'temp temp blanck_center blanck_center country country'
+          'weather weather blanck_center blanck_center blanck_right blanck_right'
+          'humidity wind blanck_center blanck_center blanck_right blanck_right'
+          'humidity_value wind_value blanck_center blanck_center blanck_right blanck_right';
+  grid-gap: 5px;
+}
+
+.grid-container2 > div {
+  /*background-color: rgba(255, 255, 255, 0.2);*/
+  text-align: center;
+  padding: 20px 0;
+  font-size: 18px;
+  color: white;
 }
 
 
@@ -180,59 +233,59 @@
 }
 
 /*.clear{*/
-  /*background-image: url("./assets/weather/violet/clear.svg");*/
+/*background-image: url("./assets/weather/violet/clear.svg");*/
 /*}*/
 
 /*.clouds{*/
-  /*background-image: url("./assets/weather/violet/clouds.svg");*/
+/*background-image: url("./assets/weather/violet/clouds.svg");*/
 /*}*/
 
 /*.rain{*/
-  /*background-image: url("./assets/weather/violet/rain.svg");*/
+/*background-image: url("./assets/weather/violet/rain.svg");*/
 /*}*/
 
 /*.snow{*/
-  /*background-image: url("./assets/weather/violet/snow.svg");*/
+/*background-image: url("./assets/weather/violet/snow.svg");*/
 /*}*/
 
 /*.fog{*/
-  /*background-image: url("./assets/weather/violet/fog.svg");*/
+/*background-image: url("./assets/weather/violet/fog.svg");*/
 /*}*/
 
 /*.haze{*/
-  /*background-image: url("./assets/weather/violet/haze.svg");*/
+/*background-image: url("./assets/weather/violet/haze.svg");*/
 /*}*/
 
 /*.mist{*/
-  /*background-image: url("./assets/weather/violet/mist.svg");*/
+/*background-image: url("./assets/weather/violet/mist.svg");*/
 /*}*/
 
 /*.clear-white{*/
-  /*background-image: url("./assets/weather/white/clear.svg");*/
+/*background-image: url("./assets/weather/white/clear.svg");*/
 /*}*/
 
 /*.clouds-white{*/
-  /*background-image: url("./assets/weather/white/clouds.svg");*/
+/*background-image: url("./assets/weather/white/clouds.svg");*/
 /*}*/
 
 /*.rain-white{*/
-  /*background-image: url("./assets/weather/white/rain.svg");*/
+/*background-image: url("./assets/weather/white/rain.svg");*/
 /*}*/
 
 /*.snow-white{*/
-  /*background-image: url("./assets/weather/white/snow.svg");*/
+/*background-image: url("./assets/weather/white/snow.svg");*/
 /*}*/
 
 /*.fog-white{*/
-  /*background-image: url("./assets/weather/white/fog.svg");*/
+/*background-image: url("./assets/weather/white/fog.svg");*/
 /*}*/
 
 /*.haze-white{*/
-  /*background-image: url("./assets/weather/white/haze.svg");*/
+/*background-image: url("./assets/weather/white/haze.svg");*/
 /*}*/
 
 /*.mist-white{*/
-  /*background-image: url("./assets/weather/white/mist.svg");*/
+/*background-image: url("./assets/weather/white/mist.svg");*/
 /*}*/
 
 .addicon{
@@ -308,6 +361,31 @@
 
 .inlineblock{
   display: inline-block;
+}
+
+.block{
+  display: block;
+}
+
+.no-margin{
+  margin:0 !important;
+  padding: 0 !important;
+}
+
+.no-bottom-margin{
+  margin-bottom: 0!important;
+  padding-bottom: 0!important;
+}
+
+.no-top-margin{
+  margin-top: 0!important;
+  padding-top: 0!important;
+}
+
+span{
+  margin: 0;
+  padding: 0;
+  /*color: white;*/
 }
 
 .inline{
@@ -492,7 +570,7 @@ input:checked + .slider:before {
 
 /* Overwriting PREV / NEXT Buttons Alice Caroussel Class */
 .alice-carousel__next-btn, .alice-carousel__next-btn-wrapper {
-text-align: left;
+  text-align: left;
 }
 
 .alice-carousel__prev-btn-item > span, .alice-carousel__next-btn-item > span{
