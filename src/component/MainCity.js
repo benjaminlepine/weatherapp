@@ -44,8 +44,8 @@ class MainCity extends React.Component {
                 </div>
             ))
         )
-
     };
+
 
     handleColorMode=()=>{
         const mode = !this.state.darkmode;

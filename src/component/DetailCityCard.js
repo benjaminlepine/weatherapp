@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import fetchAPI from "../utils/fetchAPI.js";
+import DetailCityCardDay from './DetailCityCardDay.js'
 
 class DetailCityCard extends React.Component {
     constructor(props) {
@@ -54,7 +55,6 @@ class DetailCityCard extends React.Component {
         let weatherIcon = new Image();
         let detailCityCard = this.refs.detailCityCard;
         weatherIcon.src = '../assets/country/'+country+'.png';
-        // console.log("weatherIcon.src = ",weatherIcon.src)
         detailCityCard.style.backgroundImage = "url("+weatherIcon.src+")";
     }
 
@@ -68,6 +68,41 @@ class DetailCityCard extends React.Component {
         }
     }
 
+    displayDetailledDays() {
+
+        let array1 = [0, 1, 2, 3, 4];
+        if(this.state.detailledCityInfos.Days) {
+            return (
+                <div>{array1.map(x =>
+                    <DetailCityCardDay
+                        days={this.state.detailledCityInfos.Days}
+                        item={x}
+                        key={array1.id}
+                    />)}
+                </div>
+            )
+        }
+
+        //
+        //
+        //
+        // if(this.state.detailledCityInfos.Days) {
+        //     // let words = [1, 2, 3, 4, 5];
+        //     var days = [...Array(5).keys()];
+        //     return (
+        //         <div>
+        //             {days.map(item =>
+        //                 <DetailCityCardDay
+        //                     item = {[item]}
+        //                     key={days.id}
+        //                 />
+        //             )}
+        //         </div>
+        //     )
+        // }
+    }
+
+
     render(){
         return (
             <div>
@@ -80,7 +115,7 @@ class DetailCityCard extends React.Component {
                 <div>
                     <div className={"detail-city-card "+this.props.changecolor("detail-city-card")}>
                         <div className="background-city" ref="detailCityCard">
-                            {console.log("this.state.detailledCityInfos = ",this.state.detailledCityInfos)}
+                            {/*{console.log("this.state.detailledCityInfos = ",this.state.detailledCityInfos)}*/}
                             <div className="grid-container2">
                                 <div className="item6 no-bottom-margin"><span className="temperature-detail">{Math.round(this.state.detailledCityInfos.Temperature)}°</span></div>
                                 <div className="item7 no-margin"><span className="weather-detail">{this.state.detailledCityInfos.Weather}</span></div>
@@ -95,11 +130,7 @@ class DetailCityCard extends React.Component {
                             </div>
                         </div>
                         {/*Component enfant dans un for 5 jours)*/}
-                        <div>
-                            <div className="inline">
-                                <div>4 éléments</div>
-                            </div>
-                        </div>
+                        {this.displayDetailledDays()}
                     </div>
                 </div>
             </div>
