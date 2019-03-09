@@ -17,7 +17,7 @@ class MainCity extends React.Component {
             initialCities : init,
             deleteCityIndex:-1
         };
-        console.log("init = ",init)
+        // console.log("init = ",init)
     }
 
     getLocalStorage = () => {
@@ -38,12 +38,6 @@ class MainCity extends React.Component {
         }
     };
 
-    // componentWillMount = () =>{
-    //     console.log("componentWillMount")
-    //
-    //
-    // }
-
     responsive = {
         0: { items: 1 },
         1100: { items: 2 },
@@ -59,10 +53,7 @@ class MainCity extends React.Component {
     }
 
     componentDidMount(){
-        
         this.fetchCities()
-        // console.log("did mount")
-
     }
 
     componentDidUpdate(){
@@ -91,7 +82,7 @@ class MainCity extends React.Component {
             });
         }
         else{
-            console.log("inside else componentDidUpdate")
+            // console.log("inside else componentDidUpdate")
         }
         // console.log("this.state.initialCities = ",this.state.initialCities)
     }

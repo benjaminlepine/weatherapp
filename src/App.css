@@ -196,6 +196,46 @@
   letter-spacing: 1px;
 }
 
+.delete-button{
+  width: 50px;
+  height: 50px;
+  /*background-color: #FF0000;*/
+  z-index:99;
+  border:none;
+  background-size: 85%;
+  background-image: url("./assets/deletecardh.png");
+  display: inline;
+  position: absolute;
+  right: 5%;
+  top:6%;
+  background-repeat: no-repeat;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#delete-button2{
+  background-image: url("./assets/deletecard.png");
+}
+
+#delete-button2:hover{
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Weather Icons Class */
 .mainimage{
   margin-left: 50px;
