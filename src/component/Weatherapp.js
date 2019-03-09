@@ -3,7 +3,7 @@ import Menu from './Menu.js';
 import '../App.css';
 import "react-alice-carousel/lib/alice-carousel.css";
 import MainCity from "./MainCity.js";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import DetailCityCard from "./DetailCityCard.js";
 
 

@@ -13,7 +13,8 @@ class Addcity extends React.Component {
 
     componentDidUpdate(){
         if(parseInt(this.state.cod) === 200){
-            this.props.handleCities(this.state.newCityName)
+            this.props.handleCities(this.state.newCityName);
+            // console.log("newCityName = ",this.state.newCityName)
             this.setState({
                 cod:0
             })

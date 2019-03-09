@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import fetchAPI from "../utils/fetchAPI.js";
 import DetailCityCardDay from './DetailCityCardDay.js'
 
@@ -26,7 +26,7 @@ class DetailCityCard extends React.Component {
                     let Days = [];
                     let j = 0;
                     for (let i = 0; i < 5; i++) {
-                        let day = new Object();
+                        let day = {};
                         day.Day = result.list[j].dt_txt;
                         day.Weather = result.list[j].weather[0].main;
                         day.Temp = result.list[j].main.temp;

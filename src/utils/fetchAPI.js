@@ -1,5 +1,3 @@
-import React from 'react';
-
 // const keyapi = "c456c057da472e4c57fabb1aecbeb70a"; // Clef de Benjamin
 const keyapi = "ef0eb98d901c7306544b4ebab228204a"; // Clef de Naba
 
