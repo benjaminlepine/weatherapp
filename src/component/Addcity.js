@@ -40,7 +40,7 @@ class Addcity extends React.Component {
 
     render(){
         return (
-            <div className={"card inlineblock top10 "+this.props.changecolor("card")}>
+            <div className={"add-city-card inlineblock top10 "+this.props.changecolor("card")}>
                 <div className="block">
                     <div className={"city "+this.props.changecolor("city")}><span>ADD CITY</span></div>
                     <input id="newCityName" type="text" className="inputcity" placeholder="search city"/>
