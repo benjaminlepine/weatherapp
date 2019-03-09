@@ -28,7 +28,7 @@ class Menu extends React.Component {
                 <div className={"inlineblock headermenu "+this.props.changecolor("headermenu")}>
                     <div className="headerleft">
                         <div className="iconmenu inlineblock"></div>
-                        <span className={"headertitle inlineblock " +this.props.changecolor("headertitle")}>Weather</span>
+                        <span className={"headertitle inlineblock " +this.props.changecolor("headertitle")}>WeatherApp</span>
                     </div>
                     <span className={"todaytitle inlineblock "+this.props.changecolor("todaytitle")}>{this.newDate()}</span>
                     <div className="slidercontainer inlineblock">

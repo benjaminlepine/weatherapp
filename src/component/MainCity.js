@@ -8,6 +8,18 @@ import fetchAPI from "../utils/fetchAPI.js";
 
 
 class MainCity extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            cities:[],
+            initialCities : [
+                "tunis",
+                "doha",
+                "tokyo",
+                "paris"],
+            cityDelete:-1
+        };
+    }
 
     responsive = {
         0: { items: 1 },
@@ -15,32 +27,53 @@ class MainCity extends React.Component {
         1500: { items: 3 },
     };
 
-    state={
-        cities:[]
-    };
+
+    fetchCities(){
+        for(let i = 0;i<this.state.initialCities.length;i++){
+            fetchAPI.FetchCurrentWeatherByCityName(this,this.state.initialCities,this.state.cities,i)
+        }
+        // console.log("fetch cities")
+    }
 
     componentDidMount(){
-        let cities = [];
-        let initialCities = [
-            "Tunis",
-            "Doha",
-            "Tokyo",
-            "Paris"];
-        for(let i = 0;i<initialCities.length;i++){
-            fetchAPI.FetchCurrentWeatherByCityName(this,initialCities,cities,i)
+        this.fetchCities()
+        // console.log("did mount")
+    }
+
+    componentDidUpdate(){
+        if(this.state.cityDelete !== -1){
+            console.log("inside componentDidUpdate")
+            let newCities = Array.from(this.state.cities);
+            newCities.splice(this.state.cityDelete,1);
+            this.setState({
+                cities: newCities,
+                cityDelete:-1
+            });
         }
-        // fetchAPI.FetchDetailledWeatherByCityName()
+        else{
+            console.log("inside else componentDidUpdate")
+        }
+    }
+
+    deleteCard = (index)=> {
+        console.log("index deleteCard = ",index)
+        this.setState({
+            cityDelete: index
+        })
     }
 
     galleryItems() {
         return (
-            this.state.cities.map(city =>(
+            this.state.cities.map((city, i) =>(
                 <div>
                     <Citycard city={city}
                               darkmode={this.props.darkmode}
                               handleColorMode={this.props.handleColorMode}
                               changecolor={this.props.changecolor}
-                              key={city.id} />
+                              key={city.id}
+                              deleteCard={this.deleteCard}
+                              index={i}
+                    />
                 </div>
             ))
         )
@@ -52,15 +85,29 @@ class MainCity extends React.Component {
         this.setState({darkmode: mode});
     };
 
-
+    handleCities = (newCity) => {
+        let nexCityLC = newCity.toLowerCase()
+        if(!this.state.initialCities.includes(nexCityLC)){
+            this.setState({
+                initialCities: this.state.initialCities.push(nexCityLC)
+            })
+            this.fetchCities()
+            console.log(nexCityLC," a été ajoutée avec succès")
+        }
+        else{
+            console.log(nexCityLC," est déjà dans la liste")
+        }
+    }
 
     render(){
         let items = this.galleryItems();
-        // console.log("MAIN CITY this.props.darkmode = ",this.props.darkmode)
+        // console.log("this.state.cities = ",this.state.cities)
         return (
             <div>
                 <Addcity darkmode={this.props.darkmode}
-                         changecolor={this.props.changecolor}/>
+                         changecolor={this.props.changecolor}
+                         cities={this.state.initialCities}
+                         handleCities={this.handleCities}/>
                 <div className="margin-left50">
                     <AliceCarousel
                         items={items}
