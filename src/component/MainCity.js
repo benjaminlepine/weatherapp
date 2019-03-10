@@ -15,9 +15,8 @@ class MainCity extends React.Component {
         this.state = {
             cities:[],
             initialCities : init,
-            deleteCityIndex:-1
+            deleteCityName:""
         };
-        // console.log("init = ",init)
     }
 
     getLocalStorage = () => {
@@ -45,11 +44,14 @@ class MainCity extends React.Component {
     };
 
 
-    fetchCities(){
+    fetchCities = () => {
         for(let i = 0;i<this.state.initialCities.length;i++){
-            fetchAPI.FetchCurrentWeatherByCityName(this,this.state.initialCities,this.state.cities,i)
+            fetchAPI.FetchCurrentWeatherByCityName(this.state.initialCities[i],(city) => {
+                let newCities = Array.from(this.state.cities);
+                newCities[i] = city;
+                this.setState({cities: newCities});
+            });
         }
-        // console.log("fetch cities")
     }
 
     componentDidMount(){
@@ -57,58 +59,76 @@ class MainCity extends React.Component {
     }
 
     componentDidUpdate(){
-        if(this.state.deleteCityIndex !== -1){
-            console.log("inside componentDidUpdate")
-            let newCities = Array.from(this.state.cities);
-            // delete city from cities info
-            console.log("cities = ",this.state.cities);
-            console.log("index = ",this.state.deleteCityIndex);
-
-            newCities.splice(this.state.deleteCityIndex,1);
-
-            // copy state initial cities array
-            let newInitialCities = Array.from(this.state.initialCities);
-
-            // remove cities deleted
-            newInitialCities.splice(this.state.deleteCityIndex, 1);
-
-            // add new array of cities name to local storage
-            localStorage.setItem("cities", JSON.stringify(newInitialCities));
-
-            this.setState({
-                cities: newCities,
-                initialCities: newInitialCities,
-                deleteCityIndex:-1
+        if(this.state.deleteCityName.length > 0){
+            let index = -1;
+            this.state.cities.forEach((city, i)=>{
+                if(city.name === this.state.deleteCityName){
+                    index = i;
+                }
             });
+            if(index === -1){
+                this.setState({
+                    deleteCityName : ""
+                })
+            }
+            else{
+
+                let newCities = Array.from(this.state.cities);
+                // delete city from cities info
+
+                newCities.splice(index,1);
+
+                // copy state initial cities array
+                let newInitialCities = Array.from(this.state.initialCities);
+
+                // remove cities deleted
+                newInitialCities.splice(index, 1);
+                localStorage.setItem("cities", JSON.stringify(newInitialCities));
+
+                this.setState({
+                    cities: newCities,
+                    initialCities: newInitialCities,
+                    deleteCityName:""
+                });
+            }
         }
         else{
-            // console.log("inside else componentDidUpdate")
+            console.log("else nothing deleted")
         }
-        // console.log("this.state.initialCities = ",this.state.initialCities)
     }
 
-    deleteCard = (index)=> {
-        console.log("index deleteCard = ",index);
+    deleteCard = (name)=> {
         this.setState({
-            deleteCityIndex: index
+            deleteCityName: name
         })
     }
 
-    galleryItems() {
-        return (
-            this.state.cities.map((city, i) =>(
-                <div>
-                    <Citycard city={city}
-                              darkmode={this.props.darkmode}
-                              handleColorMode={this.props.handleColorMode}
-                              changecolor={this.props.changecolor}
-                              key={city.id}
-                              deleteCard={this.deleteCard}
-                              index={i}
-                    />
-                </div>
-            ))
-        )
+    checkAPI(city, i){
+        if(city === undefined){
+            console.log("Weather API is probably down for the moment")
+        }
+        else{
+            return ( <Citycard key={ city === undefined ? 0 : city.id}
+                               city={city}
+                               darkmode={this.props.darkmode}
+                               handleColorMode={this.props.handleColorMode}
+                               changecolor={this.props.changecolor}
+                               deleteCard={this.deleteCard}
+                               index={i}
+            />)
+        }
+    }
+
+    galleryItems(){
+        if(this.state.cities.length > 0){
+            return (
+                this.state.cities.map((city, i) => (
+                    <div>
+                        {this.checkAPI(city, i)}
+                    </div>
+                ))
+            )
+        }
     };
 
 
@@ -120,15 +140,11 @@ class MainCity extends React.Component {
     handleCities = (newCity) => {
 
         let nexCityLC = newCity.toLowerCase();
-        // console.log("nexCityLC = ",this.state.initialCities.push(nexCityLC))
         if(!this.state.initialCities.includes(nexCityLC)){
-
             let copyInitialCities = Array.from(this.state.initialCities);
             copyInitialCities.splice(0,0, nexCityLC);
-            // Add new city
 
-            // console.log("this.state.initialCities = ",this.state.initialCities);
-            // console.log("copyInitialCities = ",copyInitialCities);
+            // Add new city
             localStorage.setItem("cities", JSON.stringify(copyInitialCities));
             this.setState({
                 initialCities: copyInitialCities
@@ -143,7 +159,6 @@ class MainCity extends React.Component {
 
     render(){
         let items = this.galleryItems();
-        // console.log("this.state.cities = ",this.state.cities)
         return (
             <div>
                 <Addcity darkmode={this.props.darkmode}
@@ -155,7 +170,7 @@ class MainCity extends React.Component {
                         items={items}
                         duration={400}
                         responsive={this.responsive}
-                        startIndex = {0}
+                        // startIndex = {0}
                         dotsDisabled = {true}
                         mouseDragEnabled={true}
                     />

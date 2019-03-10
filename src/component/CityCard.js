@@ -4,17 +4,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Citycard extends React.Component {
 
-    // weatherIcon(){
-    //     let weather = this.props.city.main.toLowerCase();
-    //     if(this.props.darkmode === true){
-    //         return("mainimage "+ weather);
-    //     }
-    //     else{
-    //         weather = weather.concat("-white");
-    //         return("mainimage "+ weather);
-    //     }
-    // }
-
     loadWeatherIcon(){
         let weather = this.props.city.main.toLowerCase();
         let weatherIcon = new Image();
@@ -29,24 +18,28 @@ class Citycard extends React.Component {
     }
 
     componentDidMount(){
-        this.loadWeatherIcon()
+        if (this.props.city !== undefined) {
+            this.loadWeatherIcon()
+        }
     }
 
     componentDidUpdate(){
-        this.loadWeatherIcon()
+        if (this.props.city !== undefined) {
+            this.loadWeatherIcon()
+        }
     }
 
     geturl(){
-        // console.log("this.props.city.name = ",this.props.city);
-        console.log("nik ta mere");
         return("/city-infos/"+this.props.city.name)
-
     }
 
     render(){
+        if (this.props.city === undefined){
+            return <div></div>
+        }
         return (
             <div>
-                <div onClick={()=> this.props.deleteCard(this.props.index)}>
+                <div onClick={()=> this.props.deleteCard(this.props.city.name)}>
                     <div className="delete-button" ></div>
                     <div id="delete-button2" className="delete-button"></div>
                 </div>
@@ -55,7 +48,6 @@ class Citycard extends React.Component {
                <div className={"card inlineblock "+this.props.changecolor("card")}>
                     <div className="block">
                         <div className={"city "+this.props.changecolor("city")}><span>{this.props.city.name}</span></div>
-                        {/*<div className={this.weatherIcon()}></div>*/}
                         <div className="mainimage" ref="weatherIconElem"></div>
                         <div className={"degree "+this.props.changecolor("degree")}><span>{this.props.city.temp}°</span></div>
                         <div className={"weather "+this.props.changecolor("weather")}><span>{this.props.city.main}</span></div>

@@ -12,19 +12,9 @@ const fetchAPI =   {
             + city
             + "&units=metric"
             + "&appid=" + keyapi;
-        // await fetch(url)
-        //     .then(res => res.json())
-        //     .then(result => {
-        //         returnCode = result.cod
-        //     })
-        // // console.log("result.cod = ",returnCode)
-        // return (returnCode)
-
 
         const response = await fetch(url);
         const json = await response.json();
-        // console.log("json = ",json.cod)
-        // this.setState({ data: json });
         return(json.cod)
 
     },
@@ -42,10 +32,10 @@ const fetchAPI =   {
             })
     },
 
-    FetchCurrentWeatherByCityName(thisContext, initialCities, cities, i) {
+    FetchCurrentWeatherByCityName(cityName, callback) {
 
         let url = "https://api.openweathermap.org/data/2.5/weather?q="
-            + initialCities[i]
+            + cityName
             + "&units=metric"
             + "&appid=" + keyapi;
 
@@ -62,8 +52,7 @@ const fetchAPI =   {
                     temp_max: result.main.temp_max,
                     icon: result.weather[0].icon
                 };
-                cities.push(city);
-                thisContext.setState({cities});
+                callback(city);
             })
     },
 
